@@ -104,8 +104,7 @@ def deep_fake(source_image,driving_video):
     from demo import load_checkpoints
     generator, kp_detector = load_checkpoints(config_path='config/vox-256.yaml', 
                             checkpoint_path='D:/Desktop4/vox-cpk.pth.tar',cpu=True)
-    
-    Z
+
     predictions = make_animation(source_image, driving_video, generator, kp_detector, relative=True, adapt_movement_scale=True,cpu=True)
     imageio.mimsave('static/generated.mp4', [img_as_ubyte(frame) for frame in predictions])
     generated_video = imageio.mimread('static/generated.mp4')
